@@ -1,0 +1,4 @@
+"0","# Compute the mean of the number of cats: execute this command
+mean_age <- mean(cat_lovers$Age)
+"
+"2","Warning: argument is not numeric or logical: returning NA"

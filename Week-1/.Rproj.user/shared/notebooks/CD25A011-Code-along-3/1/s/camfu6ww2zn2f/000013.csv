@@ -1,0 +1,6 @@
+"0","?as.integer()
+"
+"2","Warning: no method defined for function ‘as.integer’ and signature ‘x = ""missing""’"
+"2","Error in .helpForCall(topicExpr, parent.frame()) : 
+  no documentation for function ‘as.integer’ and signature ‘x = ""missing""’
+"

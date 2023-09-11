@@ -1,0 +1,19 @@
+---
+title: "Challenge-1"
+author: "Wong Wei Qi"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Markdown
+*Hello! My name is Wei Qi and I am a 3rd Year Business Student from NUS. I play netball in my free time and listen to Billie Ellish. Woo look it is in italics!*
+
+
+```{r, out.height= "500px",out.width= "500px",echo= FALSE,eval=TRUE,fig.cap="This is a random picture from my mac"}
+knitr::include_graphics("Wei Qi Intro 2") 
+```
+
