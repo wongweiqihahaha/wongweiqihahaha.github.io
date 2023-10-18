@@ -1,0 +1,13 @@
+
+```{r,eval=TRUE,echo=TRUE}
+# Install package
+install.packages("shiny")
+# Invoke the package
+library(shiny)
+# Run an example from the library
+runExample("01_hello")
+```
+<br>
+```{r,eval=TRUE,echo=TRUE}
+?shinyApp()
+```

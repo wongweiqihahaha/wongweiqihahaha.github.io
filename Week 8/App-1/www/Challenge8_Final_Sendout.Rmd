@@ -1,0 +1,19 @@
+---
+title: "Challenge8_Final_Send"
+author: "Wong Wei Qi"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+``` {r,eval=TRUE,echo=TRUE}
+
+```{r, out.height= "500px",out.width= "500px",echo= FALSE,eval=TRUE,fig.cap="This is a random picture from my mac"}
+knitr::include_graphics("submit.png") 
+```

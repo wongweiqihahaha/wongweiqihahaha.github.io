@@ -1,0 +1,145 @@
+---
+pdf_document: default
+author: "Wong Wei Qi"
+date: "`r Sys.Date()`"
+output:
+  html_document: null
+  df_print: paged
+  pdf_document: default
+title: "Week-6: Code-along"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# II. Code to edit and execute using the Code-along-6.Rmd file 
+<br>
+
+## A. `for` loop
+<br>
+
+### 1. Simple `for` loop (Slide #6)
+
+```{r, eval=TRUE,echo=TRUE}
+for (x in c(2,3,4)) {
+  print(x)
+}
+```
+<br>
+
+### 2. `for` loops structure (Slide #7)
+
+```{r, eval=TRUE,echo=TRUE}
+for (x in 1:8) {print(x)}
+```
+<br>
+```{r, eval=TRUE,echo=TRUE}
+
+for (x in 1:8)
+{y <- seq(from=100,to=200,by=5)
+print(y[x])}
+
+```
+<br>
+
+### 3. Example: find sample means (Slide #9)
+
+```{r, eval=TRUE,echo=TRUE}
+sample_sizes <- c(5, 10, 15, 20, 25000)
+sample_means <- double(length(sample_sizes)) #this is to 1. make the numbers into numerics instead integer, 2. match the length of sample sizes (5) to sample_means also to (5)
+
+for (i in seq_along(sample_sizes)) {
+  sample_means[i] <- mean(rnorm(sample_sizes[i]))
+}
+sample_means
+```
+<br>
+
+### 4. Alternate ways to pre-allocate space (Slide #12)
+
+```{r, eval=TRUE,echo=TRUE}
+sample_means <- vector("double", length = 5)
+sample_means <- double(5)
+sample_means <- rep(0, length(sample_sizes))
+
+```
+<br>
+
+```{r, eval=FALSE,echo=TRUE}
+data_list <- vector("list", length = 5)
+print(data_list)
+
+```
+<br>
+
+### 5. Review: Vectorized operations (Slide #18)
+
+```{r, eval=TRUE,echo=TRUE}
+
+a <- 7:11
+b <- 8:12
+out <- rep(0L, 5)
+for (i in seq_along(a)) {
+  out[i] <- a[i] + b[i]
+}
+out
+```
+<br>
+
+```{r, eval=TRUE,echo=TRUE}
+a <- 7:11
+b <- 8:12
+out <- a + b 
+out
+```
+<br>
+
+## B. Functionals
+
+### 6. `for` loops vs Functionals (Slides #23 and #24)
+
+```{r, eval=TRUE,echo=TRUE}
+sample_sizes <- c(5, 10, 15, 20, 25000)
+# Create a functional- function inside a function 
+sample_summary <- function(sample_sizes, fun) {
+# Initialise a vector of the same size as sample_sizes
+out <- vector("double", length(sample_sizes))
+# Run the for loop for as long as the length of sample_sizes 
+for (i in seq_along(sample_sizes)) {
+    # Perform operations indicated fun
+    out[i] <- fun(rnorm(sample_sizes[i]))
+  }
+return(out) }
+
+```
+<br>
+
+```{r, eval=TRUE,echo=TRUE}
+# Slide 24
+sample_summary(sample_sizes,mean)
+sample_summary(sample_sizes,median)
+sample_summary(sample_sizes,sd)
+```
+<br>
+
+## C. `while` loop
+
+### 7. `while` loop (Slides #27)
+
+```{r, eval=TRUE,echo=TRUE}
+for(i in 1:5){ print(i)
+}
+```
+<br>
+
+```{r, eval=TRUE,echo=TRUE}
+i <- 1
+while (i <= 5) {
+# body
+print(i)
+i <- i + 1 }
+```
+<br>
+
+

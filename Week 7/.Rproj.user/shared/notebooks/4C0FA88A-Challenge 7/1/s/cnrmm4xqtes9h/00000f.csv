@@ -1,0 +1,2 @@
+"0","ggplot(loans, aes(x = loan_amount)) +"
+"0","geom_density(adjust = 1)"
