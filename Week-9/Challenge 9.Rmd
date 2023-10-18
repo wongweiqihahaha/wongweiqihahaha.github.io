@@ -1,0 +1,48 @@
+---
+title: "Challenge 9"
+author: "Wong Wei Qi"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+``` {r, eval= TRUE, echo=TRUE}
+library(tidyverse)
+```
+
+``` {r, eval= TRUE, echo=TRUE}
+songs <- billboard %>%
+  pivot_longer(
+    cols = starts_with("wk"),
+    names_to = "Weeks",
+    values_to = "Ranking",
+    values_drop_na = TRUE,
+  ) %>%
+  mutate(week = parse_number(Weeks))
+songs
+```
+
+
+
+``` {r, eval= TRUE, echo=TRUE}
+ggplot(songs) +
+aes(x=week ,y= Ranking, colour=Ranking) +
+geom_line() +
+theme_bw()
+```
+
+``` {r, eval= TRUE, echo=TRUE}
+patients <- cms_patient_experience %>%
+  pivot_wider(
+    names_from = "measure_cd",
+    values_from = "prf_rate",
+    id_cols = starts_with("org")
+  )
+patients
+```
