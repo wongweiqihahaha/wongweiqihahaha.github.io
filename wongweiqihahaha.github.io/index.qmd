@@ -1,0 +1,23 @@
+---
+title: "Introduction about self"
+---
+
+#### Name: Wong Wei Qi
+#### Major: Business Adminisatration in Supply Chain Management
+#### Hobbies: Running and Reading
+
+Greetings! I'm Wong Wei Qi, currently a third-year student at the National University of Singapore (NUS), pursuing a major in Business with a specialization in Supply Chain Management. Here's a little peek into who I am and what makes me tick.
+
+As a Business major, I've always been intrigued by the intricate web of processes that underpin the movement of goods and services across the global marketplace. My specialization in Supply Chain Management allows me to delve deeper into the logistics and operations that ensure products reach consumers efficiently. It's a field that constantly evolves and presents exciting challenges.
+
+Beyond my academic interests, I'm passionate about two things: reading and running. Reading opens up new worlds and ideas, while running helps me clear my mind and maintain a healthy lifestyle. It's the perfect balance between mental and physical well-being.
+
+On campus, I serve as the Marketing Lead for the NUS Fintech Society. This role allows me to combine my business acumen with my creative side, as I get to work on innovative marketing strategies and campaigns for a dynamic society that explores the intersection of finance and technology.
+
+In addition to my studies and extracurricular activities, I've chosen Communication as my minor. I have a side hustle that involves designing and coding, particularly in the realm of UI/UX design. I believe that the market for UI/UX designers is growing rapidly, and I want to be at the forefront of this exciting industry. My goal is to explore freelance opportunities as a UI designer in the future, combining my technical skills and creative flair to create user-friendly digital experiences.
+
+In a nutshell, I'm a business student with a passion for supply chain management, a love for reading and running, a marketing enthusiast, and a burgeoning UI/UX designer. I'm eager to continue my journey at NUS, expand my horizons, and bring my unique blend of skills and interests to the world.
+
+Here is a link to my github files: https://github.com/wongweiqihahaha/NM2207
+
+------------------------------------------------------------------------
