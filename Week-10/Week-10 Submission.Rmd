@@ -1,8 +1,8 @@
 ---
 title: "Synergy between Spotify Song Tracks and their relative Youtube Videos"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -144,6 +144,19 @@ dtf
 
 ```
 
----
 
 ### Challenges of cleaning of Data:
+
+One of the challenges that I faced while cleaning the data on Excel was the amount of iterations needed. As there were symbols that made it difficult to read, I removed them by using the Find & Replace function on excel. I did this so that it would be easier to call out certain names and make them more readable to the user.**I only did this for the variable "artist" as I will be using this variable to make comparisons **
+
+### Old
+
+```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="Strings of text with symbols",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-10/beforeclean2.png"))
+```
+
+### New
+
+```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="After removing the symbol",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-10/afterclean.png"))
+```
