@@ -1,0 +1,143 @@
+---
+title: "Synergy between Spotify Song Tracks and their relative Youtube Videos"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(shiny)
+library(tidyverse)
+```
+
+<h1 style="text-align:center;">
+
+My Topic
+
+</h1>
+
+#### My topic is to investigate the <i>synergy between Spotify songs and YouTube videos through data visualization</i>, uncovering how music performance on both platforms interplays and influences audience engagement and trends. I will be identifying the top trends and characteristics with popular youtube videos and spotify tracks.
+
+<h1 style="text-align:center;">
+
+Data Sources
+
+</h1>
+
+#### The following datasets from Kaggle to explore my topics were used:
+
+##### 1. Most Streamed Spotify Songs 2023 : <https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023>
+
+##### 2. Spotify and Youtube: <https://www.kaggle.com/datasets/salvatorerastelli/spotify-and-youtube/data>
+
+### Week 9 Diary:
+
+##### For week 9, I have planned out the rough layout of my app using some sketches I did on my tablet, however these will be executed in the later weeks when I hopefully firm up my webpage. Here are the following content:
+
+```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="Images I sketched to visualise my website",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-10/Pic_1.jpg","~/Documents/GitHub/NM2207/Week-10/Pic_4.jpg","~/Documents/GitHub/NM2207/Week-10/Pic_3.jpg","~/Documents/GitHub/NM2207/Week-10/Pic_2.jpg"))
+``` 
+
+
+<h1 style="text-align:center;">
+
+Week 10 Diary:
+
+</h1>
+
+### (1) My Question: What is the synergy between the various elements in a song?
+
+### (2) Why do I find this question important to answer?
+
+-   As the evolution of music grows, we can learn how the relationships and dynamics of different elements in a song affects how people perceive music to be addictive. Songs with musical groove have become popular as naturalistic stimuli to study interactions between auditory and motor brain regions (O'Connell et al, 2022)
+-   It is important to understand what makes music popular and what are the specific elements of creating a popular song that is enjoyed by many.
+-   Different audiences may have different preferences different musical elements, which can be useful in understanding these preferences which can help artists tailor their music to specific groups based on their songs.
+
+### (3) Which rows and columns of the dataset will be used to answer this question?
+
+#### From Spotify & Youtube Dataset
+
+-   Columns:
+    -   Musical Attributes: Danceability, Energy, Key, Loudness, Speechiness, Acousticness, Instrumentalness, Liveness, Valence, Tempo
+    -   Duration_ms
+    -   Views
+    -   Likes
+    -   Comments
+    -   Artist
+    -   Track
+    -   Stream
+-   Rows: All rows
+
+#### From Most Streamed Spotify Songs 2023 Dataset
+
+-   Columns:
+    -   track_name: Name of the song
+    -   artist_count: Number of artists contributing to the song
+    -   in_spotify_playlists: Number of Spotify playlists the song is included in
+    -   in_spotify_charts: Presence and rank of the song on Spotify charts
+    -   streams: Total number of streams on Spotify
+    -   bpm: Beats per minute, a measure of song tempo
+    -   key: Key of the song
+    -   mode: Mode of the song (major or minor)
+    -   danceability\_%: Percentage indicating how suitable the song is for dancing
+    -   valence\_%: Positivity of the song's musical content
+    -   energy\_%: Perceived energy level of the song
+    -   acousticness\_%: Amount of acoustic sound in the song
+    -   instrumentalness\_%: Amount of instrumental content in the song
+    -   liveness\_%: Presence of live performance elements
+    -   speechiness\_%: Amount of spoken words in the song
+
+### (4) Why did I choose this dataset:
+
+-   I have chosen two datasets to answer the questions on the synergy in songs and their performance on YouTube and Spotify separately
+-   There are a few reasons as to why I chose this datasets
+    -   Global YouTube Statistics 2023 / Most Streamed Spotify Songs 2023
+        -   Both datasets have numerical variables that contains data types such as doubles, integers, complex numbers, logical variables which can be manipulated
+        -   Both datasets also have categorical variables that contains nominal variables, string values. This will allow me to understand the qualitative aspects of the dataset as well.
+
+### (5) Basic Visualisations to draw:
+
+#### I will be looking at the following graphs to come up with some possible visualisations, although I will not be creating all of them.
+
+-   **Correlation Heatmap**: I will use a heatmap to visualize correlations between musical attributes and popularity metrics.
+
+-   **Scatter Plots**: I will plot scatter plots with regression lines to showcase the relationship between two variables. One graph that I can visualise is to plot "Danceability" on the x-axis and "Spotify Streams" on the y-axis to see if more danceable songs get more streams.
+
+-   **Bar Chart** : I will create bar charts to compare the number of streams/views/likes for official vs. non-official videos. Also, for categorical variables like "key," you can visualize the number of songs in each key.
+
+-   **Histogram**: I will create histograms to visualize the distribution of continuous variables, such as song tempo or loudness. It'll help to understand the most common tempo or loudness values among the top songs.
+
+-   **Word Cloud**: Based on the "Description" of YouTube videos, I will attempt to create a word cloud to see which words or phrases are most commonly mentioned.
+
+### (6) Advanced Graphs:
+
+#### I hope to enhance my skills to make better and more informed graphs through R.
+
+-   **Bivariate Relationship**: I would like to identify those variables that have relationships with each other and to identify whether they can impact each other. I hope to create a pair plot to visualize the bivariate relationships between each pair of variables.
+
+-   **Violin Plot for Stream Distributions**: Create a violin plot to visualize the distribution of Spotify Streams across different keys or any other categorical variable, providing more depth than a standard box plot.
+
+### Process of cleaning of Data: Excel
+
+This week, I will start by cleaning my data. Here is a snapshot of my variables from "Spotify & Youtube" dataset.
+
+```{r,eval= TRUE, echo=FALSE}
+
+
+dtf <- read_csv("spotify_youtube.csv")
+dtf
+
+```
+
+Here is a snapshot of my variables from "Most Streamed Spotify Songs 2023" dataset.
+
+```{r,eval= TRUE, echo=FALSE}
+
+
+dtf <- read_csv("popularsongs.csv")
+dtf
+
+```
+
+### Challenges of cleaning of Data:
