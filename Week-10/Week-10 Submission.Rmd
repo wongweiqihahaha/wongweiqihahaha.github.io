@@ -1,8 +1,8 @@
 ---
 title: "Synergy between Spotify Song Tracks and their relative Youtube Videos"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -38,7 +38,9 @@ Data Sources
 ```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="Images I sketched to visualise my website",fig.show='hold',fig.align='center'}
 knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-10/Pic_1.jpg","~/Documents/GitHub/NM2207/Week-10/Pic_4.jpg","~/Documents/GitHub/NM2207/Week-10/Pic_3.jpg","~/Documents/GitHub/NM2207/Week-10/Pic_2.jpg"))
 ``` 
+<br>
 
+---
 
 <h1 style="text-align:center;">
 
@@ -87,6 +89,8 @@ Week 10 Diary:
     -   instrumentalness\_%: Amount of instrumental content in the song
     -   liveness\_%: Presence of live performance elements
     -   speechiness\_%: Amount of spoken words in the song
+
+---
 
 ### (4) Why did I choose this dataset:
 
@@ -139,5 +143,7 @@ dtf <- read_csv("popularsongs.csv")
 dtf
 
 ```
+
+---
 
 ### Challenges of cleaning of Data:
