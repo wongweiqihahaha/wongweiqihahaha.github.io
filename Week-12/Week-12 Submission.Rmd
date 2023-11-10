@@ -1,0 +1,311 @@
+---
+title: "Synergy between Spotify Song Tracks and their relative Youtube Videos"
+output:
+  pdf_document: default
+  html_document: default
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(shiny)
+library(tidyverse)
+```
+
+<h1 style="text-align:center;">
+
+My Topic
+
+</h1>
+
+#### My topic is to investigate the <i>synergy between Spotify songs and YouTube videos through data visualization</i>, uncovering how music performance on both platforms interplays and influences audience engagement and trends. I will be identifying the top trends and characteristics with popular youtube videos and spotify tracks.
+
+<h1 style="text-align:center;">
+
+Data Sources
+
+</h1>
+
+#### The following datasets from Kaggle to explore my topics were used:
+
+##### 1. Most Streamed Spotify Songs 2023 : <https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023>
+
+##### 2. Spotify and Youtube: <https://www.kaggle.com/datasets/salvatorerastelli/spotify-and-youtube/data>
+
+### Week 9 Diary:
+
+##### For week 9, I have planned out the rough layout of my app using some sketches I did on my tablet, however these will be executed in the later weeks when I hopefully firm up my webpage. Here are the following content:
+
+```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="Images I sketched to visualise my website",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-10/Pic_1.jpg","~/Documents/GitHub/NM2207/Week-10/Pic_4.jpg","~/Documents/GitHub/NM2207/Week-10/Pic_3.jpg","~/Documents/GitHub/NM2207/Week-10/Pic_2.jpg"))
+```
+
+<br>
+
+------------------------------------------------------------------------
+
+<h1 style="text-align:center;">
+
+Week 10 Diary:
+
+</h1>
+
+### (1) My Question: What is the synergy between the various elements in a song?
+
+### (2) Why do I find this question important to answer?
+
+-   As the evolution of music grows, we can learn how the relationships and dynamics of different elements in a song affects how people perceive music to be addictive. Songs with musical groove have become popular as naturalistic stimuli to study interactions between auditory and motor brain regions (O'Connell et al, 2022)
+-   It is important to understand what makes music popular and what are the specific elements of creating a popular song that is enjoyed by many.
+-   Different audiences may have different preferences different musical elements, which can be useful in understanding these preferences which can help artists tailor their music to specific groups based on their songs.
+
+### (3) Which rows and columns of the dataset will be used to answer this question?
+
+#### From Spotify & Youtube Dataset
+
+-   Columns:
+    -   Musical Attributes: Danceability, Energy, Key, Loudness, Speechiness, Acousticness, Instrumentalness, Liveness, Valence, Tempo
+    -   Duration_ms
+    -   Views
+    -   Likes
+    -   Comments
+    -   Artist
+    -   Track
+    -   Stream
+-   Rows: All rows
+
+#### From Most Streamed Spotify Songs 2023 Dataset
+
+-   Columns:
+    -   track_name: Name of the song
+    -   artist_count: Number of artists contributing to the song
+    -   in_spotify_playlists: Number of Spotify playlists the song is included in
+    -   in_spotify_charts: Presence and rank of the song on Spotify charts
+    -   streams: Total number of streams on Spotify
+    -   bpm: Beats per minute, a measure of song tempo
+    -   key: Key of the song
+    -   mode: Mode of the song (major or minor)
+    -   danceability\_%: Percentage indicating how suitable the song is for dancing
+    -   valence\_%: Positivity of the song's musical content
+    -   energy\_%: Perceived energy level of the song
+    -   acousticness\_%: Amount of acoustic sound in the song
+    -   instrumentalness\_%: Amount of instrumental content in the song
+    -   liveness\_%: Presence of live performance elements
+    -   speechiness\_%: Amount of spoken words in the song
+
+------------------------------------------------------------------------
+
+### (4) Why did I choose this dataset:
+
+-   I have chosen two datasets to answer the questions on the synergy in songs and their performance on YouTube and Spotify separately
+-   There are a few reasons as to why I chose this datasets
+    -   Global YouTube Statistics 2023 / Most Streamed Spotify Songs 2023
+        -   Both datasets have numerical variables that contains data types such as doubles, integers, complex numbers, logical variables which can be manipulated
+        -   Both datasets also have categorical variables that contains nominal variables, string values. This will allow me to understand the qualitative aspects of the dataset as well.
+
+### (5) Basic Visualisations to draw:
+
+#### I will be looking at the following graphs to come up with some possible visualisations, although I will not be creating all of them.
+
+-   **Correlation Heatmap**: I will use a heatmap to visualize correlations between musical attributes and popularity metrics.
+
+-   **Scatter Plots**: I will plot scatter plots with regression lines to showcase the relationship between two variables.
+    One graph that I can visualise is to plot "Danceability" on the x-axis and "Spotify Streams" on the y-axis to see if more danceable songs get more streams.
+
+-   **Bar Chart** : I will create bar charts to compare the number of streams/views/likes for official vs. non-official videos.
+    Also, for categorical variables like "key," you can visualize the number of songs in each key.
+
+-   **Histogram**: I will create histograms to visualize the distribution of continuous variables, such as song tempo or loudness.
+    It'll help to understand the most common tempo or loudness values among the top songs.
+
+-   **Word Cloud**: Based on the "Description" of YouTube videos, I will attempt to create a word cloud to see which words or phrases are most commonly mentioned.
+
+### (6) Advanced Graphs:
+
+#### I hope to enhance my skills to make better and more informed graphs through R.
+
+-   **Bivariate Relationship**: I would like to identify those variables that have relationships with each other and to identify whether they can impact each other.
+    I hope to create a pair plot to visualize the bivariate relationships between each pair of variables.
+
+-   **Violin Plot for Stream Distributions**: Create a violin plot to visualize the distribution of Spotify Streams across different keys or any other categorical variable, providing more depth than a standard box plot.
+
+### Process of cleaning of Data: Excel
+
+This week, I will start by cleaning my data.
+Here is a snapshot of my variables from "Spotify & Youtube" dataset.
+
+```{r,eval= TRUE, echo=FALSE}
+
+
+dtf <- read_csv("spotify_youtube.csv")
+dtf
+
+```
+
+Here is a snapshot of my variables from "Most Streamed Spotify Songs 2023" dataset.
+
+```{r,eval= TRUE, echo=FALSE}
+
+
+dtf <- read_csv("popularsongs.csv")
+dtf
+
+```
+
+### Challenges of cleaning of Data:
+
+One of the challenges that I faced while cleaning the data on Excel was the amount of iterations needed.
+As there were symbols that made it difficult to read, I removed them by using the Find & Replace function on excel.
+I did this so that it would be easier to call out certain names and make them more readable to the user.**I only did this for the variable "artist" as I will be using this variable to make comparisons**
+
+### Old
+
+```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="Strings of text with symbols",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-10/beforeclean2.png"))
+```
+
+### New
+
+```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="After removing the symbol",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-10/afterclean.png"))
+```
+
+```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="After removing the symbol",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-10/afterclean.png"))
+```
+
+------------------------------------------------------------------------
+
+<br>
+
+<h1 style="text-align:center;">
+
+Week 11 Diary:
+
+</h1>
+
+### (1) List the visualizations that you are going to use in your project
+
+**Bar Graph: Bivariate Relationship Between Danceability and Energy**
+
+(a)I will be using the *Danceability* and *Energy* variables which are of double data type.
+
+(b)This could help to visualize the relationship between how danceable a track is and its energy level.My hypothesis is that there is no bivariate relationship between danceability and energy as there are songs which maybe low in energy but have high danceability in them.(E.g Slow songs that are meant for slow dancing)
+
+**Heatmap: Heatmap of correlations**
+
+(a)The variables I will be using are danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, and tempo.
+
+(b)This will allow me to identify the relationships between the variables and how musicians can use this information to understand their target audience better.
+
+### (2) How do you plan to make it interactive?
+
+**Bar Graph: Bivariate Relationship Between Danceability and Energy**
+
+-   Dropdown Menu for Coloring: Allows users to choose whether the points should be colored based on genre or album type.
+-   Slider for Danceability Range: Lets users filter the data based on a range of danceability values.
+-   Slider for Energy Range: Lets users filter the data based on a range of energy values.
+
+**Heatmap: Heatmap of correlations**
+
+-   Checkboxes: To select which features to include in the correlation matrix.
+-   Dropdown: To choose the method of correlation
+-   Reset Button: to recompute the heatmap after changing the selections.
+
+### List of Topics used for my project
+
+```{r,echo=FALSE,eval=TRUE}
+library(gridExtra)
+```
+
+```{r,echo=FALSE,eval=TRUE}
+topics_weeks <- data.frame(
+  Topics = c("Bivariate Scatter Plot", "Heat Map", 
+             "Shiny features: Dropdown", "Shiny features: Slider", 
+             "Shiny features: Reset Button", "ggplot2", 
+             "ggplot", "Manipulating data: Changing Data types", 
+             "Functions", "Loops"),
+  Weeks = c("Self Learnt", "Self Learnt", 
+            "Week 8", "Week 8", 
+            "Week 8", "Week 2", 
+            "Week 2", "Week 3", 
+            "Week 5", "Week 6")
+)
+
+
+grid.table(topics_weeks, rows = NULL)
+```
+
+<h1 style="text-align:center;">
+
+# Week 11 Diary:
+
+</h1>
+
+## Error with setting background image
+
+This is a minimal task! But I am still unable to set the correct image and allow it to be displayed on my screen. I will try to get this done before the final submission.
+
+
+## Error with setting video wrap
+
+One Issue that I had was the setting of the video alignment on the About page.
+I was unable to get a straight video that covers the full section of the screen even after referencing Quarto.org for the guides.
+
+```{r, echo=FALSE,out.width="50%", out.height="20%",fig.cap=" The standardised width was not appropriate for my screen",fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-12/error4.png"))
+```
+
+In the end, I had to tweak around the values for width and stuck with -605vw. I think that there should be some errors in my settings as I understand that it should automatically fit the picture to my screen.
+
+## Valence Bargraph
+
+```{r, echo=FALSE,out.width="50%", out.height="20%",fig.cap=" The standardised width was not appropriate for my screen",fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-12/error2.png"))
+```
+
+I had this error when trying to process the column "Stream" as I did not clean my dataset well enough to realise that there was invalid characters in the dataset. This has prevented me from being able to display my bar graph.
+
+As a result, I had referenced some help from Chatgpt & source from this [StackOverflow post] and realised that I had to add the following code:
+
+```mutate_if(is.character, utf8::utf8_encode)```
+
+## Word Cloud
+
+```{r, echo=FALSE,out.width="50%", out.height="20%",fig.cap=" Word Cloud Adjustment",fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-12/error9.png"))
+```
+
+For this particular error, I had faced this issue of being unable to run my word cloud.
+One of the reasons was because while searching up on line on how to do a word cloud, I realised that my dataset was too large and the Column "Tracks" had too many rows for the word cloud to show.
+Hence, rather than setting the min frequency to 1, I set it to 2 instead as seen below.
+
+```{r, echo=FALSE,out.width="50%", out.height="20%",fig.cap=" Word Cloud Adjustment",fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-12/error10.png"))
+```
+
+**(1) min.freq : I had increased the limit from 1 to 2 as it showed too little words and I wanted to make it more meaningful by showing more varieties of words.**
+
+**(2) max.word: I had set a limit to 100 as the function was unable to process and fit all the words in my graph.**
+
+```{r, echo=FALSE,out.width="100%",fig.cap="Updated Code",fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-12/error12.png"))
+```
+
+I plan to enhance this word cloud using this example provided by [Rul,2019](https://towardsdatascience.com/create-a-word-cloud-with-r-bde3e7422e8a).This would be really useful as I can make different shapes and sizes of Word Cloud without being limited to HTML's style of word cloud.
+One issue with the current code that I have is that it is limited to the design I can make for it and I would like to try to be more experimental.
+
+## Line graph
+
+I had the error of the wrong data type used in the function sum. I did not realised that streams were all in character type and it should have been in numeric data type in order for me to manipulate them in sum.
+
+As such, I used the as.numeric() function to request R to read them as numeric values instead which worked.
+
+```{r, echo=FALSE,out.width="100%",fig.cap="Updated Code",fig.align='center'}
+knitr::include_graphics(c("~/Documents/GitHub/NM2207/Week-12/error13.png"))
+```
+
+## Pie Chart (In Progress)
+
+I am still in the midst of coming up with the code.
